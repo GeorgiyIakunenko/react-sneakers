@@ -9,6 +9,7 @@ body {
 .wrapper {
   width: 1080px;
   background: #FFFFFF;
+  //background: linear-gradient(white, red);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
   border-radius: 20px;
   margin: 50px auto;
@@ -43,6 +44,7 @@ body {
   }
 
   li {
+    cursor: pointer;
     display: flex;
     align-items: center;
   }
@@ -62,34 +64,17 @@ body {
   grid-template-columns: repeat(4, 1fr);
 }
 
-.card {
-  margin-top: 30px;
-  max-width: 210px;
-  background: #FFFFFF;
-  border: 1px solid #F3F3F3;
-  //box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 40px;
-  padding: 20px 30px 30px 30px;
-  &__img {
-    margin-bottom: 15px;
-  }
-  &__text {
-    font-size: 14px;
-    line-height: 17px;
-    color: #000000;
-    margin-bottom: 14px;
-  }
 
-  &__box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 
-  &__btn {
-    //margin: 0 auto;
-    //padding: 0 auto;
-    display: flex;
+.price-style {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+
+.sneaker-btn {
+   display: flex;
     justify-content: center;
     align-items: center;
     width: 32px;
@@ -97,19 +82,201 @@ body {
     background: #FFFFFF;
     border: 1px solid #F2F2F2;
     border-radius: 8px;
-    //margin: 0;
-    //padding: 0;
+    cursor: pointer;
+}
+
+ .favorite {
+    position: absolute;
+    cursor: pointer; 
   }
 
-  &__box p {
-    color: #BDBDBD;
-    font-weight: 500;
-    font-size: 11px;
-    line-height: 13px;
-    text-transform: uppercase;
+.content-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-block {
+  padding-left: 18px;
+  display: flex;
+  align-items: center;
+  width: 270px;
+  height: 45px;
+  border: 1px solid #F3F3F3;
+  border-radius: 10px;
+
+  &__input {
+    max-width: 200px;
+    border: none;
+    padding: 10px 15px;
+    background-color: transparent;
   }
 
-  &__price {
-    margin-top: 2px;
+  &__btn {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
   }
+}
+
+.overlay {
+  
+  //display: none;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.cart-empty {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__text {
+    text-align: center;
+  }
+
+}
+
+
+
+.drawer {
+  padding: 30px;
+  position: absolute;
+  width: 385px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  background: #FFFFFF;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+  }
+
+  .cart-empty {
+    flex: 1;
+    .green-btn {
+      width: 245px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    button {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+  }
+
+  &__items {
+    flex-grow: 1;
+    overflow: auto;
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 24px;
+   
+  }
+  &__item {
+    padding: 20px 20px 30px 20px;
+    background: #FFFFFF;
+    border: 1px solid #F3F3F3;
+    border-radius: 20px;
+    max-width: 325px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__item-info {
+    max-width: 150px;
+  }
+
+  &__item-text {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  &__info {
+
+    li {
+      display: flex;
+      align-items: flex-end;
+      div {
+        flex-grow: 1;
+        position: relative;
+        border-bottom: 1px dashed #DFDFDF;
+        top: -4px;
+        margin: 0 7px;
+      }
+    }
+
+    li + li {
+      margin-top: 18px;
+    }
+  }
+}
+
+.green-btn {
+      margin-top: 25px;
+      width: 325px;
+      height: 55px;
+      border: none;
+      background: #9DD558;
+      border-radius: 18px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      text-align: center;
+      color: #FFFFFF;
+      position: relative;
+
+      
+
+
+      img {
+        position: absolute;
+        right: 30px;
+        top: 20px;
+        transition: transform ease-in-out .2s;
+      }
+
+      &__left img {
+         left: 20px; 
+      }
+
+      &:hover {
+        background: lighten($color: #9DD558, $amount: 5%);
+        img {
+          transform: translateX(5px);
+        }
+      }
+
+      &:active {
+        background: darken($color: #9DD558, $amount: 5%);
+      }
 }
