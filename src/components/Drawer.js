@@ -1,4 +1,15 @@
-function Drawer({ removeCartItem, onClose, items = [] }) {
+
+
+function Drawer({ removeCartItem, onClose, items = [], itemsArray }) {
+
+  let cnt = 0;
+
+  itemsArray.forEach((value, index, array) => {
+    if(value.isCart == true){
+      cnt++;
+    }
+  })
+
   return (
     <div className="overlay">
       <div className="drawer">
@@ -9,33 +20,35 @@ function Drawer({ removeCartItem, onClose, items = [] }) {
           </button>
         </div>
 
-        {items.length > 0 ? (
+        {cnt > 0 ? (
           <div className="drawer__content">
             <div className="drawer__items">
-              {items.map((item) => {
-                return (
-                  <div className="drawer__item">
-                    <img
-                      width={70}
-                      height={70}
-                      className="drawer__item-img"
-                      src={item.url}
-                      alt="sneakers-foto"
-                    />
-                    <div className="drawer__item-info">
-                      <p className="drawer__item-text">{item.title}</p>
-                      <span className="drawer__item-price price-style">
-                        {item.price}
-                      </span>
+              {itemsArray.map((item) => {
+                if (item.isCart == true) {
+                  return (
+                    <div className="drawer__item">
+                      <img
+                        width={70}
+                        height={70}
+                        className="drawer__item-img"
+                        src={item.url}
+                        alt="sneakers-foto"
+                      />
+                      <div className="drawer__item-info">
+                        <p className="drawer__item-text">{item.title}</p>
+                        <span className="drawer__item-price price-style">
+                          {item.price}
+                        </span>
+                      </div>
+                      <button
+                        onClick={() => removeCartItem(item.title)}
+                        className="drawer__item-btn sneaker-btn"
+                      >
+                        <img src="/img/delFromCart.svg" alt="x" />
+                      </button>
                     </div>
-                    <button
-                      onClick={() => removeCartItem(item.title)}
-                      className="drawer__item-btn sneaker-btn"
-                    >
-                      <img src="/img/delFromCart.svg" alt="x" />
-                    </button>
-                  </div>
-                );
+                  );
+                }
               })}
             </div>
             <div className="drawer__box">

@@ -38,6 +38,7 @@ body {
   display: flex;
   color: #5C5C5C;
   font-weight: 600;
+  place-items: baseline;
   
   li span {
     margin-left: 10px;
@@ -60,6 +61,7 @@ body {
 }
 
 .cards {
+  padding-top: 30px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }

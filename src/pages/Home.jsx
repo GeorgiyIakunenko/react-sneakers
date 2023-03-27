@@ -1,4 +1,4 @@
-function Home({Card,itemsArray, onPlusBtnClick, setSearchValue, onChangeSearchInput, searchValue }) {
+function Home({Card,itemsArray, onPlusBtnClick, setSearchValue, onChangeSearchInput, searchValue, setItemsArray,Addcart }) {
   return(<div className="content">
           <div className="content-top">
             <h1 className="title">
@@ -40,10 +40,14 @@ function Home({Card,itemsArray, onPlusBtnClick, setSearchValue, onChangeSearchIn
               .map((obj, index) => {
                 return (
                   <Card
-                    
+                    setItemsArray={setItemsArray}
+                    itemsArray={itemsArray}
                     key={obj.title}
                     title={obj.title}
                     price={obj.price}
+                    Addcart={Addcart}
+                    isFavorite={obj.isFavorite}
+                    isCart={obj.isCart}
                     url={obj.url}
                     onPlusBtnClick={() => {
                       onPlusBtnClick(obj);
