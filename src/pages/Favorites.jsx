@@ -1,5 +1,4 @@
-
-function Favorites({Card,itemsArray, onPlusBtnClick,setItemsArray,Addcart}) {
+function Favorites({Card,itemsArray,setItemsArray,toggleCartItem}) {
   return(<div className="content">
           <div className="content-top">
             <h1 className="title">
@@ -19,10 +18,7 @@ function Favorites({Card,itemsArray, onPlusBtnClick,setItemsArray,Addcart}) {
                     url={obj.url}
                     isFavorite={obj.isFavorite}
                     isCart={obj.isCart}
-                    Addcart={Addcart}
-                    onPlusBtnClick={() => {
-                      onPlusBtnClick(obj);
-                    }}
+                    toggleCartItem={toggleCartItem}
                      setItemsArray={setItemsArray}
 
                   />

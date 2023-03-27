@@ -1,4 +1,4 @@
-function Home({Card,itemsArray, onPlusBtnClick, setSearchValue, onChangeSearchInput, searchValue, setItemsArray,Addcart }) {
+function Home({Card,itemsArray, setSearchValue, onChangeSearchInput, searchValue, setItemsArray,toggleCartItem }) {
   return(<div className="content">
           <div className="content-top">
             <h1 className="title">
@@ -45,13 +45,10 @@ function Home({Card,itemsArray, onPlusBtnClick, setSearchValue, onChangeSearchIn
                     key={obj.title}
                     title={obj.title}
                     price={obj.price}
-                    Addcart={Addcart}
+                    toggleCartItem={toggleCartItem}
                     isFavorite={obj.isFavorite}
                     isCart={obj.isCart}
                     url={obj.url}
-                    onPlusBtnClick={() => {
-                      onPlusBtnClick(obj);
-                    }}
                   />
                 );
               })}

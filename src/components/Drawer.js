@@ -1,14 +1,12 @@
 
-
-function Drawer({ removeCartItem, onClose, items = [], itemsArray }) {
-
+function Drawer({ toggleCartItem, onClose, itemsArray }) {
   let cnt = 0;
 
   itemsArray.forEach((value, index, array) => {
-    if(value.isCart == true){
+    if (value.isCart === true) {
       cnt++;
     }
-  })
+  });
 
   return (
     <div className="overlay">
@@ -24,7 +22,7 @@ function Drawer({ removeCartItem, onClose, items = [], itemsArray }) {
           <div className="drawer__content">
             <div className="drawer__items">
               {itemsArray.map((item) => {
-                if (item.isCart == true) {
+                if (item.isCart === true) {
                   return (
                     <div className="drawer__item">
                       <img
@@ -41,7 +39,7 @@ function Drawer({ removeCartItem, onClose, items = [], itemsArray }) {
                         </span>
                       </div>
                       <button
-                        onClick={() => removeCartItem(item.title)}
+                        onClick={() => toggleCartItem(item.title)}
                         className="drawer__item-btn sneaker-btn"
                       >
                         <img src="/img/delFromCart.svg" alt="x" />
